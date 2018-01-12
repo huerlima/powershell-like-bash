@@ -73,6 +73,17 @@ Function meld {
     Start-Process -FilePath "C:\Program Files (x86)\Meld\Meld.exe" -ArgumentList $args
 };
 
+# start bash.exe in a new window, in the current path
+Function bash {
+    #$currentBashPath = $((Get-Location).Path |sed -e 's,\\,/,g' -e 's,^\([a-zA-Z]\):,/mnt/\L\1,g')
+    ConEmu64.exe -run bash.exe
+};
+
+# start windows explorer in current path
+Function e {
+    start .
+};
+
 # Set-Alias grep Select-String
 
 Function head {
@@ -90,7 +101,6 @@ Set-Alias mv mv.exe
 $GLOBAL:oldDir = ''
 $GLOBAL:prevOldDir = ''
 $GLOBAL:addToStack = $true
-#$GLOBAL:dirStack.Push((Get-Location).Path)
 
 # alter the prompt
 function prompt
