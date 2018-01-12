@@ -96,7 +96,7 @@ $GLOBAL:addToStack = $true
 function prompt
 {
     #alter prompt appearance
-    Write-Host ($(get-date -format "yymmdd HH:mm ") ) -NoNewline -foregroundcolor White
+    Write-Host ($(get-date -format "yyMMdd HH:mm ") ) -NoNewline -foregroundcolor White
     Write-Host ($env:UserName + "@" + $env:ComputerName) -NoNewline -ForegroundColor Yellow
     Write-Host (" " + $(pwd)) -foregroundcolor White -nonewline
     
