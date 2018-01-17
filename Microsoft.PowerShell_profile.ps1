@@ -39,12 +39,6 @@ Function ltr {
     Get-ChildItem $args | Sort-Object -Property LastWriteTime
 };
 
-# convenient shortcut to ls -a
-Set-Alias l dir
-
-# bash style which
-New-Alias which get-command
-
 # ls should only display names
 Function ls {
     (Get-ChildItem).name
@@ -85,7 +79,6 @@ Function e {
 };
 
 # Set-Alias grep Select-String
-
 Function head {
     echo "reminder: select -first 10"
 }
@@ -94,7 +87,7 @@ Function head {
 del alias:ls
 del alias:mv
 del alias:cd
-Set-Alias mv mv.exe
+del alias:sort -force
 
 # global stack to store prompt path
 [System.Collections.Stack]$GLOBAL:dirStack = @()
@@ -147,4 +140,22 @@ Function cd {
     }
 }
 
-#Clear-Host
+$env:Path = $env:Path + ";C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts"
+
+#####
+#ALIAS
+#####
+
+
+# convenient shortcut to ls -a
+Set-Alias l dir
+
+# bash style which
+Set-Alias which get-command
+
+# bash style mv
+Set-Alias mv mv.exe
+
+# bash style sort
+Set-Alias sort  C:\Users\$env:UserName\scoop\shims\sort.exe
+
